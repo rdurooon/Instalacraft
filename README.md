@@ -1,6 +1,6 @@
 # Instalacraft
 
-![Instalacraft Preview](src\resources\instalacraft.git.png)
+![Instalacraft Preview](src/resources/instalacraft.git.png)
 
 Instalacraft é uma aplicação desktop desenvolvida em Java que facilita a instalação de mapas e resourcepacks no Minecraft. O programa detecta automaticamente os arquivos necessários ou permite que o usuário os insira manualmente.
 
@@ -32,4 +32,4 @@ Este projeto está licenciado sob a licença **MIT**. Veja o arquivo `LICENSE` p
 
 ---
 
-**Desenvolvido por [SEU NOME] ❤️**
+**Desenvolvido por Jucelino Pexeira/RDuron ❤️**
