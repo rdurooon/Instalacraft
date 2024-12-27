@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.Objects;
 
-public class Paths {
+public class Pathes {
 
     public static String getMinecraftOrigin(){ //Get Minecraft Directory
         String os = System.getProperty("os.name").toLowerCase();
@@ -19,6 +19,17 @@ public class Paths {
         } else {
             return home + "/.minecraft";
         }
+    }
+
+    public static String getJarDir(){ //Get program dir 
+        try {
+            File jarFile = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI());
+            return jarFile.getParent();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return System.getProperty("user.dir");
+        }
+
     }
 
     public static boolean searchNecessaryFolders(String minePath){ //Search for necessary folders to run program
@@ -37,9 +48,14 @@ public class Paths {
         }
 
         for(File file : Objects.requireNonNull(dir.listFiles())){
-            if(file.getName().equalsIgnoreCase(name) && file.isDirectory()){
+            if(file.getName().equals(name) && file.isDirectory() && new File(file, "level.dat").exists()){
                 return file;
             }
+
+            if(file.getName().equals(name)){
+            if(file.isDirectory() && new File(file, "pack.mcmeta").exists() || file.getName().endsWith(".zip")){
+                return file;
+            }}
         }
         return null;
     }
